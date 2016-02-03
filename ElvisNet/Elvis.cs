@@ -3,16 +3,25 @@ using System.Linq.Expressions;
 
 namespace ElvisNet
 {
-	public class Elvis
+	public static class Elvis
 	{
-		public Elvis ()
+		public static T Value<T>(Expression<Func<T>> expression)
 		{
-		}
+			if (expression.NodeType == ExpressionType.Lambda && 
+				(expression.Body.NodeType == ExpressionType.MemberAccess || expression.Body.NodeType == ExpressionType.Call)) {
+				var compile = expression.Compile ();
+				try 
+				{
+					T value = compile ();
+					return value;
+				} 
+				catch (NullReferenceException) 
+				{
+					return default(T);
+				}
+			}
 
-		public static object Value<T>(Expression<Func<T>> expression)
-		{
-			var visitor = new ElvisExpressionVisitor ();
-			return visitor.Visit (expression);
+			throw new NotSupportedException (expression.ToString());
 		}
 	}
 }
