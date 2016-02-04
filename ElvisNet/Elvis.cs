@@ -13,8 +13,8 @@ namespace System
 				var compile = expression.Compile ();
 				try 
 				{
-					T value = compile ();
-					return value;
+					var value = compile ();
+                    return value;
 				} 
 				catch (NullReferenceException) 
 				{

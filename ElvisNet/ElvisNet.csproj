@@ -7,7 +7,8 @@
     <OutputType>Library</OutputType>
     <RootNamespace>ElvisNet</RootNamespace>
     <AssemblyName>ElvisNet</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>
@@ -34,7 +35,6 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Nil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Elvis.cs" />
   </ItemGroup>
