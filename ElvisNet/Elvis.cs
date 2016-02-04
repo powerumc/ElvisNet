@@ -1,14 +1,15 @@
 ﻿using System;
+using System.Linq;
 using System.Linq.Expressions;
 
-namespace ElvisNet
+namespace System
 {
 	public static class Elvis
 	{
-		public static T Value<T>(Expression<Func<T>> expression)
+		public static T SafeNull<T>(this Expression<Func<T>> expression)
 		{
 			if (expression.NodeType == ExpressionType.Lambda && 
-				(expression.Body.NodeType == ExpressionType.MemberAccess || expression.Body.NodeType == ExpressionType.Call)) {
+               (expression.Body.NodeType == ExpressionType.MemberAccess || expression.Body.NodeType == ExpressionType.Call)) {
 				var compile = expression.Compile ();
 				try 
 				{
@@ -22,6 +23,18 @@ namespace ElvisNet
 			}
 
 			throw new NotSupportedException (expression.ToString());
+		}
+
+		public static T SafeNull<T>(this Func<T> func)
+		{
+			try 
+			{
+				return func();
+			} 
+			catch (NullReferenceException) 
+			{
+				return default(T);
+			}
 		}
 	}
 }
