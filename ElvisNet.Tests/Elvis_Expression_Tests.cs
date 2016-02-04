@@ -26,5 +26,25 @@ namespace ElvisNet.Tests
             Console.WriteLine(expect);
             Assert.AreEqual(expect, Environment.CommandLine.Length);
         }
+
+        [TestMethod]
+        public void Object_Test()
+        {
+            var person = new Person { Name = "POWERUMC" };
+            Console.WriteLine(person.SafeNull());
+        }
+
+        [TestMethod]
+        public void Object2_Test()
+        {
+            var person = new Person { Name = "POWERUMC" };
+            Console.WriteLine(person.SafeNull(o => o.Name));
+        }
+
+        public class Person
+        {
+            public string Name { get; set; }
+            public int Age { get; set; }
+        }
     }
 }

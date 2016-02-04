@@ -36,6 +36,34 @@ namespace System
 				return default(T);
 			}
 		}
-	}
+
+        public static T SafeNull<T>(this T obj)
+        {
+            try
+            {
+                if (obj == null) return default(T);
+
+                return obj;
+            }
+            catch (NullReferenceException)
+            {
+                return default(T);
+            }
+        }
+
+        public static TResult SafeNull<TInput, TResult>(this TInput obj, Func<TInput, TResult> func)
+        {
+            try
+            {
+                if (obj == null) return default(TResult);
+
+                return func(obj);
+            }
+            catch (NullReferenceException)
+            {
+                return default(TResult);
+            }
+        }
+    }
 }
 
