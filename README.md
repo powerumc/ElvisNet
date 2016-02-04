@@ -12,8 +12,8 @@ Use Elvis Expression is C# 6.0 spec under C# 6.0
 ```  
 ## Extension Methods
 
-```
-  var person = new Person; 
+```chsarp
+  var person = new Person();
   // ...
   
   person.SafeNull();
