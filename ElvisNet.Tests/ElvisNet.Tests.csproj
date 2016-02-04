@@ -54,8 +54,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ElvisNet\ElvisNet.csproj">
-      <Project>{c3edfc47-d956-46e8-a55e-2c91174e6999}</Project>
+    <ProjectReference Include="..\ElvisNet\ElvisNet\ElvisNet.csproj">
+      <Project>{e9510fb3-890a-4f0a-88df-dbe63a885d26}</Project>
       <Name>ElvisNet</Name>
     </ProjectReference>
   </ItemGroup>
