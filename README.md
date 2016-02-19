@@ -6,7 +6,9 @@ Use Elvis Expression is C# 6.0 spec under C# 6.0
 ```chsarp
   Expression<Func<int>> expression = () => Environment.CommandLine.Length;
   var expect = Elvis.SafeNull(expression);
-  
+```
+
+```chsarp
   Func<int> func = () => Environment.CommandLine.Length;
   var expect = Elvis.SafeNull(func);
 ```  
