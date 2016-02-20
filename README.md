@@ -3,18 +3,18 @@ Use Elvis Expression is C# 6.0 spec under C# 6.0
 
 ## Basic
 
-```chsarp
+```C#
   Expression<Func<int>> expression = () => Environment.CommandLine.Length;
   var expect = Elvis.SafeNull(expression);
 ```
 
-```chsarp
+```C#
   Func<int> func = () => Environment.CommandLine.Length;
   var expect = Elvis.SafeNull(func);
 ```  
 ## Extension Methods
 
-```chsarp
+```C#
   var person = new Person();
   // ...
   
